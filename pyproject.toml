@@ -1,0 +1,19 @@
+[build-system]
+requires = ['setuptools>=61']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'Streamstats_package'
+version = '0.1.0'
+readme = 'README.md'
+dependencies = [
+	"pytest",
+	"ruff"
+]
+
+[tool.setuptools.packages.find]
+where = ['src']
+
+[tool.pytest]
+testpaths = ['tests']
+pythonpath = ['src']

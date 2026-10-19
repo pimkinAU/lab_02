@@ -1,0 +1,10 @@
+{"timestamp": "2026-10-12T14:20:00+03:00", "level": "INFO", "source": "gateway", "message": "Балансировщик запущен"}
+{"timestamp": "2026-10-12T14:20:07+03:00", "level": "DEBUG", "source": "indexer", "message": "Индекс обновлён за 0.4 с"}
+{"timestamp": "2026-10-12T14:21:30+03:00", "level": "INFO", "source": "mailer", "message": "Отправлено уведомление: «Заказ оформлен» 📦"}
+{"timestamp": "2026-10-12T14:23:45+03:00", "level": "WARNING", "source": "indexer", "message": "Документ #305 пропущен, попытка 3"}
+{"timestamp": "2026-10-12T14:24:10+03:00", "level": "ERROR", "source": "indexer", "message": "Ошибка индексации: ValueError 'price'"}
+{"timestamp": "2026-10-12T11:25:20+00:00", "level": "ERROR", "source": "mailer", "message": "SMTP: 550 Mailbox unavailable"}
+{"timestamp": "2026-10-12T14:26:00+03:00", "level": "CRITICAL"}
+{"timestamp": "2026-10-12T14:27:50+03:00", "level": "ERROR", "source": "billing", "message": "Отклонён платёж для \"maria\""}
+{"timestamp": "2026-10-12T14:29:00+03:00", "level": "WARNING", "source": "gateway", "message": "GET /status 429"}
+{"timestamp": "2026-10-12T14:31:15+03:00", "level": "ERROR", "source": "search", "message": "Elasticsearch: кластер в статусе red"}

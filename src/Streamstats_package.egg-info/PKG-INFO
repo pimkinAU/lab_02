@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: Streamstats_package
+Version: 0.1.0
+Description-Content-Type: text/markdown
+Requires-Dist: pytest
+Requires-Dist: ruff

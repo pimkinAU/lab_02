@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/Streamstats_package.egg-info/PKG-INFO
+src/Streamstats_package.egg-info/SOURCES.txt
+src/Streamstats_package.egg-info/dependency_links.txt
+src/Streamstats_package.egg-info/requires.txt
+src/Streamstats_package.egg-info/top_level.txt
+src/streamstats/__init__.py
+src/streamstats/__main__.py
+src/streamstats/analysis.py
+src/streamstats/errors.py
+src/streamstats/models.py
+src/streamstats/parsers.py
+src/streamstats/report.py
