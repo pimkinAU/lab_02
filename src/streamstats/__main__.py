@@ -13,13 +13,13 @@ logger = logging.getLogger(__name__)
 
 def main():
 	try:
-		parser = argparse.ArgumentParser()
+		parser = argparse.ArgumentParser(prog='streamstats', description='Статистика по логам из CSV и JSONL')
 		subparser = parser.add_subparsers(dest='command', required=True)
-		analyze_parser = subparser.add_parser('analyze')
-		analyze_parser.add_argument('input', nargs='+')
-		analyze_parser.add_argument('--format')
-		analyze_parser.add_argument('--output')
-		analyze_parser.add_argument('--skip-invalid', action='store_true', dest='skip')
+		analyze_parser = subparser.add_parser('analyze', help='Посчитать статистику по файлам')
+		analyze_parser.add_argument('input', nargs='+', help='Входные файлы')
+		analyze_parser.add_argument('--format', help='Csv или jsonl')
+		analyze_parser.add_argument('--output', help='Путь к JSON-отчёту')
+		analyze_parser.add_argument('--skip-invalid', action='store_true', dest='skip', help='Пропускать ошибочные строки')
 
 		stats = Statistics()
 
