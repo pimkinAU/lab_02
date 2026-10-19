@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 def main():
 	try:
 		parser = argparse.ArgumentParser()
-		subparser = parser.add_subparsers(dest='command')
+		subparser = parser.add_subparsers(dest='command', required=True)
 		analyze_parser = subparser.add_parser('analyze')
 		analyze_parser.add_argument('input', nargs='+')
 		analyze_parser.add_argument('--format')
@@ -27,6 +27,8 @@ def main():
 		for input in args.input:
 			start = 2 if args.format == 'csv' else 1
 			for number, event in enumerate(parse(input, args.format), start=start):
+				if event is None:
+					continue
 				try:
 					validate(event)
 				except StreamStatsError as err:
@@ -40,7 +42,8 @@ def main():
 		print('Первая временная метка',stats.first_date)
 		print('Последняя временная метка', stats.last_date)
 		print('Skipped lines', stats.skipped_lines)
-		report(stats, args.output)
+		if args.output:
+			report(stats, args.output)
 	except StreamStatsError as err:
 		print('Получена ошибка -', err)
 		return 2

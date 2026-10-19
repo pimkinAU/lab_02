@@ -10,16 +10,18 @@ logger = logging.getLogger(__name__)
 
 
 def validate(obj):
+	if not isinstance(obj, dict):
+		raise IncorrectFormat('Строка не является JSON-объектом')
 	fields = ['timestamp', 'level', 'source', 'message']
-	for k in obj:
-		fields.remove(k)
-	if fields:
-		raise MissingKey('Не хватает следующих ключей:', *fields)
-	if len(fields) > 4:
-		raise OddKey('Переданы лишние поля', *fields)
+	if set(fields) - set(obj):
+		raise MissingKey('Не хватает следующих ключей:', *(set(fields) - set(obj)))
+	if set(obj) - set(fields):
+		raise OddKey('Переданы лишние поля', *(set(obj) - set(fields)))
 	for k,v in obj.items():
-		if not v:
-			raise EmptyField('Передана пустая строка', k)
+		if not isinstance(v, str):
+			raise IncorrectFormat('Значение должно быть строкой', k)
+	if not obj['source']:
+		raise EmptyField('Передана пустая строка', 'source')
 	if obj['level'] not in levels:
 		raise IncorrectLevel('Дан неправильный уровень лога')
 	try:

@@ -15,3 +15,9 @@ class MissingKey(StreamStatsError):
 
 class OddKey(StreamStatsError):
 	pass
+
+class UnsupportedFormat(StreamStatsError):
+	pass
+
+class ConfigError(StreamStatsError):
+	pass

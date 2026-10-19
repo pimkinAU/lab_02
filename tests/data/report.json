@@ -1,1 +1,1 @@
-{"event_amount": 2, "errors": {"api": 1}, "first_date": "2026-10-07 12:00:00+03:00", "last_date": "2026-10-07 12:00:00+03:00", "skipped_lines": 1, "top_five": [["api", 1]]}
+{"event_amount": 2, "levels": {"DEBUG": 0, "INFO": 2, "WARNING": 0, "ERROR": 0, "CRITICAL": 0}, "sources": {"api": 2}, "errors": {}, "first_date": "2026-10-07 12:00:00+03:00", "last_date": "2026-10-07 12:00:00+03:00", "skipped_lines": 1, "top_five": []}

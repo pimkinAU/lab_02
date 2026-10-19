@@ -61,3 +61,17 @@ def test_wrong_timestamp():
 def test_bad_line_returns_2():
 	sys.argv = ['streamstats', 'analyze', 'tests/data/with_bad.jsonl', '--format', 'jsonl', '--output', 'tests/data/report.json']
 	assert main() == 2
+
+def test_empty_file():
+	sys.argv = ['streamstats', 'analyze', 'tests/data/empty.jsonl', '--format', 'jsonl', '--output', 'tests/data/report.json']
+	main()
+	with Path('tests/data/report.json').open(encoding='utf-8') as file:
+		data = json.load(file)
+	assert data['event_amount'] == 0
+
+def test_broken_json_skip():
+	sys.argv = ['streamstats', 'analyze', 'tests/data/broken.jsonl', '--format', 'jsonl', '--output', 'tests/data/report.json', '--skip-invalid']
+	main()
+	with Path('tests/data/report.json').open(encoding='utf-8') as file:
+		data = json.load(file)
+	assert data['skipped_lines'] == 1

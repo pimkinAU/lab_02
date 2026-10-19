@@ -6,9 +6,11 @@ from pathlib import Path
 def get_data(stats):
 	return {
 		'event_amount': stats.events_amount,
+		'levels': stats.levels,
+		'sources': stats.sources,
 		'errors': stats.errors,
-		'first_date': datetime.fromisoformat(str(stats.first_date)),
-		'last_date': datetime.fromisoformat(str(stats.last_date)),
+		'first_date': datetime.fromisoformat(str(stats.first_date)) if stats.first_date else None,
+		'last_date': datetime.fromisoformat(str(stats.last_date)) if stats.last_date else None,
 		'skipped_lines': stats.skipped_lines,
 		'top_five': stats.get_five()
 	}
